@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :agencias
+  namespace :turnos do #agregamos
+    resources :atenciones #agregamos
+  end #agregamos
   resources :turnos
   resources :usuarios
   # The priority is based upon order of creation: first created -> highest priority.

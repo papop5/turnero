@@ -11,47 +11,58 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="row">
+
+  <div class="col-md-6">
     <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="col-md-6">
     <%= f.label :apellido %><br>
-    <%= f.text_field :apellido %>
+    <%= f.text_field :apellido, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="col-md-6">
     <%= f.label :agencia %><br>
-    <%= f.text_field :agencia %>
+    <%= f.collection_select :agencia_id, Agencia.all, :id, :nombre, {prompt: 'Seleccione una agencia'}, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="col-md-6">
     <%= f.label :rol %><br>
-    <%= f.number_field :rol %>
+    <%= f.collection_select :rol, Usuario.roles, :first, :first, {}, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="col-md-6">
     <%= f.label :estado %><br>
-    <%= f.number_field :estado %>
+    <%= f.collection_select :estado, Usuario.estados, :first, :first, {}, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="col-md-6">
     <%= f.label :codigo %><br>
-    <%= f.text_field :codigo %>
+    <%= f.text_field :codigo, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="col-md-6">
     <%= f.label :correo %><br>
-    <%= f.text_field :correo %>
+    <%= f.text_field :correo, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="col-md-6">
     <%= f.label :login %><br>
-    <%= f.text_field :login %>
+    <%= f.text_field :login, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="col-md-6">
     <%= f.label :cedula %><br>
-    <%= f.text_field :cedula %>
+    <%= f.text_field :cedula, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :password_digest %><br>
-    <%= f.text_field :password_digest %>
+  <div class="col-md-6">
+    <%= f.label :password %><br>
+    <%= f.text_field :password, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="col-md-6">
+    <%= f.label :password_confirmation %><br>
+    <%= f.text_field :password_confirmation, class: 'form-control' %>
   </div>
+</div>
+
+ <div class="row">
+  <div class="col-md-6">
+    <br>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+  </div>
+</div> 
 <% end %>

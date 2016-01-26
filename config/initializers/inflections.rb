@@ -22,4 +22,6 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	   inflect.irregular  'turno', 'turnos'
 	   inflect.irregular  'usuario', 'usuarios'
 	   inflect.irregular  'sesion', 'sesiones'
+	   inflect.irregular  'rol', 'roles'
+	   inflect.irregular  'atencion', 'atenciones'
 	end
