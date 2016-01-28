@@ -1,4 +1,5 @@
 class UsuariosController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /usuarios

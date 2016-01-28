@@ -1,4 +1,5 @@
 class TurnosController < ApplicationController
+  before_action :authenticate_usuario!
   before_action :set_turno, only: [:show, :edit, :update, :destroy]
 
   # GET /turnos
