@@ -5,6 +5,8 @@
 <table class="table table-hover table-striped">
   <thead>
     <tr>
+      <th>Tiempo de atencion</th>
+      <th>Nombre</th>
       <th>Descripcion</th>
       <th>Comentario</th>
       <th colspan="3"></th>
@@ -14,16 +16,14 @@
   <tbody>
     <% @atenciones.each do |atencion| %>
       <tr>
+        <td><%= distance_of_time_in_words_to_now(atencion.hora_atencion)%></td>
+        <td><%= atencion.nombres %></td>
         <td><%= atencion.descripcion %></td>
         <td><%= atencion.comentario %></td>
-        <td><%= link_to 'Show', atencion %></td>
-        <td><%= link_to 'Edit', edit_atencion_path(atencion) %></td>
-        <td><%= link_to 'Destroy', atencion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'ver', atencion %></td>
+        <td><%= link_to 'Editar', edit_atencion_path(atencion) %></td>
        </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Atencion', new_atencion_path %>

@@ -5,6 +5,7 @@
 <table class="table table-hover table-striped">
   <thead>
     <tr>
+      <th>Tiempo de espera</th>
       <th>Asunto</th>
       <th>Descripcion</th>
       <th>Nombres</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @recepciones.each do |recepcion| %>
       <tr>
+        <td><%= distance_of_time_in_words_to_now(recepcion.hora_ingreso)%></td>
         <td><%= recepcion.asunto %></td>
         <td><%= recepcion.descripcion %></td>
         <td><%= recepcion.nombres %></td>
