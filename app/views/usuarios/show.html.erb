@@ -1,54 +1,45 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @usuario.nombre %>
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Imágen de perfil
+      </div>
+      <div class="panel-body"></div>
+    </div>
+  </div>  
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Detalles de la cuenta
+      </div>
+      <table class="table">
+        <tr>
+          <td><b>Nombre: </b> <%= @usuario.nombre %></td>
+          <td><b>Apellido: </b> <%= @usuario.apellido %></td>
+        </tr>
+         <tr>
+          <td><b>Agencia: </b> <%= @usuario.agencia %></td>
+          <td><b>Rol: </b> <%= @usuario.rol %></td>
+        </tr>
+        <tr>
+          <td><b>Estado: </b> <%= @usuario.estado %></td>
+          <td><b>Codigo: </b> <%= @usuario.codigo %></td>
+        </tr>
+        <tr>
+          <td><b>Email: </b> <%= @usuario.email %></td>
+          <td><b>Login: </b> <%= @usuario.login %></td>
+        </tr>
+        <tr>
+          <td><b>Cedula: </b> <%= @usuario.cedula %></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Apellido:</strong>
-  <%= @usuario.apellido %>
-</p>
 
-<p>
-  <strong>Agencia:</strong>
-  <%= @usuario.agencia %>
-</p>
-
-<p>
-  <strong>Rol:</strong>
-  <%= @usuario.rol %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @usuario.estado %>
-</p>
-
-<p>
-  <strong>Codigo:</strong>
-  <%= @usuario.codigo %>
-</p>
-
-<p>
-  <strong>Correo:</strong>
-  <%= @usuario.correo %>
-</p>
-
-<p>
-  <strong>Login:</strong>
-  <%= @usuario.login %>
-</p>
-
-<p>
-  <strong>Cedula:</strong>
-  <%= @usuario.cedula %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @usuario.password_digest %>
-</p>
 
 <%= link_to 'Edit', edit_usuario_path(@usuario) %> |
 <%= link_to 'Back', usuarios_path %>
