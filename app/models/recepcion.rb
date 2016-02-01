@@ -9,8 +9,9 @@ class Recepcion < Turno #hereda de turno
 		self.hora_ingreso = Time.now #self esta llamando el metodo hora_ingreso para grabarlo en el campo hora_ingreso
 	end
 
-	def to_atencion
+	def to_atencion(current_user)
 		atencion = self.becomes!(Atencion) #convierte de atencion a recepcion 
+		atencion.usuario_atencion = current_user
 		atencion.hora_atencion = Time.now
 		atencion.save(validate: false) #!save devuelve un error 500 y save solo saca un true o un falso /no ejecute ninguna validacion
 	end

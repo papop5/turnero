@@ -89,6 +89,8 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    morrisjs-rails (0.5.1)
+      railties (> 3.1, < 5)
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -122,6 +124,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
+    raphael-rails (2.1.2)
     rdoc (4.2.1)
       json (~> 1.4)
     responders (2.1.1)
@@ -177,8 +180,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
+  morrisjs-rails
   pg (~> 0.15)
   rails (= 4.2.5)
+  raphael-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
