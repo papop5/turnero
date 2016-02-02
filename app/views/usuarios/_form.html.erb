@@ -23,7 +23,7 @@
   </div>
   <div class="col-md-6">
     <%= f.label :agencia %><br>
-    <%= f.collection_select :agencia_id, Agencia.all, :id, :nombre, {prompt: 'Seleccione una agencia'}, class: 'form-control' %>
+    <%= f.collection_select :agencia_id, Agencia.all.sort_by(&:nombre), :id, :nombre, {prompt: 'Seleccione una agencia'}, class: 'form-control' %>
   </div>
   <div class="col-md-6">
     <%= f.label :rol %><br>
