@@ -32,7 +32,7 @@ class RecepcionesController < ApplicationController
   def create
     @recepcion = Recepcion.new(recepcion_params)
     @recepcion.usuario_ingreso = current_usuario
-    @recepcion.agencia_ingreso = current_usuario.agencia
+    @recepcion.agencia = current_usuario.agencia
 
     respond_to do |format|
       if @recepcion.save
