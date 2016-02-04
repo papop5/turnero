@@ -19,7 +19,7 @@
           <td><b>Apellido: </b> <%= @usuario.apellido %></td>
         </tr>
          <tr>
-          <td><b>Agencia: </b> <%= @usuario.agencia %></td>
+          <td><b>Agencia: </b> <%= @usuario.agencia.try(:nombre) %></td>
           <td><b>Rol: </b> <%= @usuario.rol %></td>
         </tr>
         <tr>

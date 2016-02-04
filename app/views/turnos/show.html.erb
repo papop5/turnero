@@ -12,7 +12,7 @@
 
 <p>
   <strong>Agencia:</strong>
-  <%= @turno.agencia %>
+  <%= @turno.agencia.try(:nombre) %>
 </p>
 
 <p>

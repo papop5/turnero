@@ -27,7 +27,7 @@
   </div>
   <div class="col-md-6">
     <%= f.label :zona %><br>
-    <%= f.text_field :zona, class: 'form-control'  %>
+    <%= f.collection_select :zona, Agencia.zonas, :first, :first, {}, class: 'form-control' %>
   </div>
   <div class="col-md-6">
     <%= f.label :numero %><br>
