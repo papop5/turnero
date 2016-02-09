@@ -6,6 +6,13 @@ class TurnosController < ApplicationController
   # GET /turnos.json
   def index
     @turnos = Turno.all
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'Listado de turnos'
+      end
+    end
   end
 
   # GET /turnos/1

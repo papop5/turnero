@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Usuario ingreso</th>
+      <th>Usuario atencion</th>
+      <th>Agencia</th>
+      <th>Nombres</th>
+      <th>Asunto</th>
+      <th>Descripcion</th>
+      <th>Hora ingreso</th>
+      <th>Hora atencion</th>
+      <th>Hora finalizacion</th>
+      <th>Comentario</th>
+      <th>Estado</th>
+      </tr>
+  </thead>
+
+  <tbody>
+    <% @turnos.each do |turno| %>
+      <tr>
+        <td><%= turno.usuario_ingreso.try(:nombre) %></td>
+        <td><%= turno.usuario_atencion.try(:nombre)%></td>
+        <td><%= turno.agencia.try(:nombre)%></td>
+        <td><%= turno.nombres %></td>
+        <td><%= turno.asunto %></td>
+        <td><%= turno.descripcion %></td>
+        <td><%= turno.hora_ingreso %></td>
+        <td><%= turno.hora_atencion %></td>
+        <td><%= turno.hora_finalizacion %></td>
+        <td><%= turno.comentario %></td>
+        <td><%= turno.type %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
