@@ -19,6 +19,7 @@ WickedPdf.config = {
   # (but can be overridden in `render :pdf` calls)
   layout: 'application.pdf', #agregamos esta linea
   orientation: 'Landscape',
+  disposition: 'attachment', #para poder descargare el pdf desde el navegador
   footer: {
   	center: '[page] of [topage]',
   	left: 'Administración de Turnos'

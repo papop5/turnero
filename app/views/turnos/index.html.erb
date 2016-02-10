@@ -1,8 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    <h3>Listado de Turnos</h3>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <div class="btn-group pull-right">
+      <%= link_to 'Buscar', '#', class: 'btn btn-default', data: {target: '#myModal', toggle: 'modal'} %>
 
+      <div class="btn-group">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+            Descargar
+            <span class="caret"></span>
+          </button>
 
+            <ul class="dropdown-menu">
+              <li><%=link_to 'PDF', turnos_path(format: :pdf) %></li>
+              <li><%=link_to 'CSV', turnos_path(format: :csv) %></li>
+            </ul> 
+        </div>   
+      </div>
+    </div>
+  </div>
+</div> 
 
-<table>
+<table class="table table-hover table-striped">
   <thead>
     <tr>
       <th>Usuario ingreso</th>
@@ -34,8 +55,18 @@
         <td><%= turno.hora_finalizacion %></td>
         <td><%= turno.comentario %></td>
         <td><%= turno.type %></td>
-        <td><%= link_to 'Show', turno_path(turno) %></td>
+        <td><%= link_to 'Show', turno_path(turno), class: 'btn btn-default btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= render partial: 'shared/busqueda', locals: { campos_busqueda: 
+                                                    [
+                                                     :nombres_cont,
+                                                     :asunto_cont, 
+                                                     :usuario_ingreso_nombre_cont,
+                                                     :usuario_atencion_nombre_cont
+                                                     ] 
+                                                }
+%>

@@ -36,6 +36,9 @@ gem 'raphael-rails'
 #PDF
 gem 'wicked_pdf'
 
+#Busquedas
+gem 'ransack' 
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

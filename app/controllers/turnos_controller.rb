@@ -5,12 +5,16 @@ class TurnosController < ApplicationController
   # GET /turnos
   # GET /turnos.json
   def index
-    @turnos = Turno.all
+    @q = Turno.ransack(params[:q])
+    @turnos = @q.result
 
     respond_to do |format|
       format.html
       format.pdf do
         render pdf: 'Listado de turnos'
+      end
+      format.csv do
+        send_data @turnos.to_csv
       end
     end
   end

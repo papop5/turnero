@@ -5,7 +5,8 @@ class AgenciasController < ApplicationController
   # GET /agencias
   # GET /agencias.json
   def index
-    @agencias = Agencia.all
+    @q = Agencia.ransack(params[:q])
+    @agencias = @q.result
   end
 
   # GET /agencias/1

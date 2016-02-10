@@ -1,5 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    <h3>Listado de Agencias</h3>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <div class="btn-group pull-right">
+      <%= link_to 'Buscar', '#', class: 'btn btn-default', data: {target: '#myModal', toggle: 'modal'} %>
 
+      <div class="btn-group">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+            Descargar
+            <span class="caret"></span>
+          </button>
+
+            <ul class="dropdown-menu">
+              <li><%=link_to 'PDF', agencias_path(format: :pdf) %></li>
+              <li><%=link_to 'CSV', agencias_path(format: :csv) %></li>
+            </ul> 
+        </div>   
+      </div>
+    </div>
+  </div>
+</div> 
 
 
 <table class="table table-hover table-striped">
@@ -22,9 +44,9 @@
         <td><%= agencia.telefono %></td>
         <td><%= agencia.zona %></td>
         <td><%= agencia.numero %></td>
-        <td><%= link_to 'Show', agencia %></td>
-        <td><%= link_to 'Edit', edit_agencia_path(agencia) %></td>
-        <td><%= link_to 'Destroy', agencia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', agencia, class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_agencia_path(agencia), class: 'btn btn-default btn-xs' %></td>
+        <td><%= link_to 'Destroy', agencia, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +54,14 @@
 
 <br>
 
-<%= link_to 'New Agencia', new_agencia_path %>
+<%= link_to 'New Agencia', new_agencia_path, class: 'btn btn-primary' %>
+
+<%= render partial: 'shared/busqueda', locals: { campos_busqueda: 
+                                                    [
+                                                     :nombre_cont,
+                                                     :direccion_cont, 
+                                                     :telefono_cont,
+                                                     :numero_eq
+                                                     ] 
+                                                }
+%>
