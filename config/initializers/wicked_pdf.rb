@@ -23,5 +23,14 @@ WickedPdf.config = {
   footer: {
   	center: '[page] of [topage]',
   	left: 'Administración de Turnos'
+  },
+  header: {
+    html: {
+      template: 'shared/header.pdf.erb'
+    },
+    spacing: 10
+  },
+  margin: {
+    top: 10
   }
 }

@@ -1,0 +1,20 @@
+<h1>Estadisticas - reporte</h1>
+
+<p>Reporte de atencion del día <%= l(Date.today, format: :short) %></p>
+
+<h4>Promedio por agencia</h4>
+<table>
+<tr>
+<th>Agencia</th>
+<th>Promeido de espera</th>
+<th>Promedio de atención</th>
+</tr>
+
+<%= l@promedio_agencia.each do |agencia| %>
+<tr>
+	<td><%= agencia[:agencia].try (:nombre) %></td>
+	<td><%= agencia[:promedio_espera] %></td>
+	<td><%= agencia[:promedio_atencion] %></td>
+</tr>
+<% end %>
+</table>

@@ -26,9 +26,13 @@
         <td><%= usuario.email %></td>
         <td><%= usuario.login %></td>
         <td><%= usuario.cedula %></td>
-        <td><%= link_to 'Show', usuario, class: 'btn btn-default btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario), class: 'btn btn-default btn-xs' %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+        <div class="btn-group">
+        <td>
+        <%= link_to 'Show', usuario, class: 'btn btn-default btn-xs' %>
+        <%= link_to 'Edit', edit_usuario_path(usuario), class: 'btn btn-default btn-xs' %>
+        <%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+        </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
