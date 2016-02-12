@@ -36,8 +36,22 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } #se agrea del resultrado de instalar la gema devise del punto 1.
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+#Agregamos las lineas:
+
+#config.action_mailer.delivery_method = :letter_opener
+config.action_mailer.perform_deliveries = true
+config.action_mailer.default_url_options = {host: 'localhost:3000'}
+config.action_mailer.smtp_settings = {
+address:'smtp.mandrillapp.com', 
+port:587, 
+enable_startls_auto: true,
+user_name: 'rderoldan1@gmail.com', #en correo de gmail esta el correo
+password: '_WVMN515REzI8qF4Wuj85A', #en correo de gmail esta la contraseña
+authentication: 'login',
+host: 'localhost:3000',
+}
+
 end

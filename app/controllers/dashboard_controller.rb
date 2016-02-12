@@ -4,6 +4,12 @@ class DashboardController < ApplicationController
   def index
   end
 
+  def send_report
+  	Estadisticas.reporte.deliver
+  	flash[:notice] = "Reporte enviado"
+  	redirect_to dashboard_path
+  end
+
 	def distribucion_agencia
 		@agencias = Turno.all.group_by(&:agencia)
 	end

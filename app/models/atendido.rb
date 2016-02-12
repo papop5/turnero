@@ -27,11 +27,11 @@ class Atendido < Turno
 		end
 	end
 
-	def self.promedio_usuarios(dia = Time.now)
+	def self.promedio_usuario(dia = Time.now)
 		result_set = registros_por_dia(dia)
 		result_set.group_by(&:usuario_atencion).map do |usuario, turnos|
 			suma = turnos.map { |turno| turno.hora_finalizacion - turno.hora_atencion }.sum
-			{ usuario: usuario, promedio: suma / result_set.count }
+			{ usuario: usuario, promedio: suma / result_set.count, count: turnos.count }
 		end
 	end
 
@@ -40,7 +40,12 @@ class Atendido < Turno
 		result_set.group_by(&:agencia).map do |usuario, turnos|
 			suma_atencion = turnos.map { |turno| turno.hora_finalizacion - turno.hora_atencion }.sum
 			suma_espera = turnos.map { |turno| turno.hora_atencion - turno.hora_ingreso }.sum
-			{ agencia: usuario, promedio_atencion: suma_atencion / result_set.count, promedio_espera: suma_espera / result_set.count}
+			{ 
+				agencia: usuario, 
+				promedio_atencion: suma_atencion / result_set.count, 
+				promedio_espera: suma_espera / result_set.count, 
+				count: turnos.count
+			}
 		end
 	end
 

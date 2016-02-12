@@ -11,7 +11,7 @@ class Estadisticas < ApplicationMailer
     @promedio_espera = Atendido.promedio_espera_dia
     @promedio_atencion = Atendido.promedio_atencion_dia
     
-    usuarios = Usuario.admin.join.map(&:email).join(',')
+    usuarios = Usuario.admin.map(&:email).join(',')
     mail to: usuarios
   end
 end

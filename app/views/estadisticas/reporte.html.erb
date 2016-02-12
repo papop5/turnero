@@ -1,6 +1,7 @@
-<h1>Estadisticas - reporte</h1>
+<h2>Estadisticas - Reporte</h2>
 
-<p>Reporte de atencion del día <%= l(Date.today, format: :short) %></p>
+
+<p>Reporte de atencion del día <%= l(Date.today, format: :short) %></p> <!-- se puede quitar , format: :short y muestra el año y mes) -->
 
 <h4>Promedio por agencia</h4>
 <table>
@@ -8,13 +9,47 @@
 <th>Agencia</th>
 <th>Promeido de espera</th>
 <th>Promedio de atención</th>
+<th>Número de turnos</th>
 </tr>
 
-<%= l@promedio_agencia.each do |agencia| %>
+<% @promedio_agencia.each do |agencia| %>
 <tr>
-	<td><%= agencia[:agencia].try (:nombre) %></td>
+	<td><%= agencia[:agencia].try(:nombre) %></td>
 	<td><%= agencia[:promedio_espera] %></td>
 	<td><%= agencia[:promedio_atencion] %></td>
+	<td><%= agencia[:count] %></td>
 </tr>
 <% end %>
 </table>
+
+
+<h2>Estadisticas por usuarios</h2>
+
+<h4>Promedio por usuarios</h4>
+<table>
+<tr>
+<th>Usuario</th>
+<th>Promedido de espera</th>
+<th>Número de atenciones</th>
+</tr>
+
+<% @promedio_usuario.each do |usuario| %>
+<tr>
+	<td><%= usuario[:usuario].try(:nombre) %></td>
+	<td><%= usuario[:promedio] %></td>
+	<td><%= usuario[:count] %></td>
+</tr>
+<% end %>
+</table>
+
+
+<h2>Estadisticas de espera</h2>
+
+<h4><%= @promedio_espera %></h4>
+
+
+<h2>Estadisticas de atencion</h2>
+
+<h4><%= @promedio_atencion %></h4>
+
+
