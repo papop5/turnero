@@ -5,7 +5,8 @@ class DashboardController < ApplicationController
   end
 
   def send_report
-  	Estadisticas.reporte.deliver
+  	#Estadisticas.reporte.deliver
+  	EstadisticasJob.perform_later
   	flash[:notice] = "Reporte enviado"
   	redirect_to dashboard_path
   end
